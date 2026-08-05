@@ -1,0 +1,5 @@
+#+title: Readme for this test repo for DWM
+
+This is a test repo for testing suckless's DWM with select patches from their website.
+
+Follow commit history to know about patches added.
