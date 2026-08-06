@@ -2,4 +2,8 @@
 
 This is a test repo for testing suckless's DWM with select patches from their website.
 
-Follow commit history to know about patches added.
+Follow commit history to know about patches added:
+
+- in =commit:9b053a=, patch =swallow-20201211= added
+- in =commit:7d9d9b=, patch =xrdb-6.4= added 
+- patch =shift-tools-6.2= added in this commit
