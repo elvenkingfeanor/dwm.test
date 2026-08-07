@@ -23,3 +23,4 @@ Follow commit history to know about patches added:
 - patch =bulkill-2023= added in this commit
 - patch =clientresizehints-6.5= added in this commit
 - patch =dragmfact-6.2= added in this commit
+- patch =restoreafterrestart-2022= added in this commit
