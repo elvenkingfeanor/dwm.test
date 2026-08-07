@@ -19,3 +19,4 @@ Follow commit history to know about patches added:
 - patch =movestack-2021= added in this commit
 - patch =fsignal-6.2= added in this commit
 - patch =attachaside-6.6= added in this commit
+- patch =focusonclick-6.6= added in this commit
