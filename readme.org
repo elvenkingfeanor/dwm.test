@@ -12,3 +12,4 @@ Follow commit history to know about patches added:
 - patch =pertag-2020= added in this commit
 - patch =scratchpads-2020= added in this commit
 - patch =gridall-6.5= combining the =gapless-grid= and the =winview= patches, added in this commit
+- patch =keysequence-2025= added in this commit.  Additionally, added a template keysequence to =config.def.h= file.

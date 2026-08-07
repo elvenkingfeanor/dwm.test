@@ -91,6 +91,19 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgco
 static const char *termcmd[]  = { "st", NULL };
 #include "shift-tools.c"
 
+/* keysequence-2025 patch, template for keysequences */
+/* static Key keyseq_a[] = { */
+/*   { 0,	        XK_t,	setlayout,	    {.v = &layouts[0]}}, */
+/*   { ShiftMask,	XK_t,	setlayout,	    {.v = &layouts[1]}}, */
+/*   { MODKEY,		XK_y,	setlayout,	    {.v = &layouts[2]}}, */
+/*   {0} */
+/* } */
+
+/* static Key keys[] = { */
+/*   { MODKEY,       XK_a,   keypress_other, {.v = keyseq_a}}, */
+/*   {0} */
+/* } */
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_o, shiftviewclients,    { .i = +1 } },
@@ -157,6 +170,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_o,      winview,        {0} },
 	{ MODKEY,                       XK_g,      gridall,        {} },
 	{ MODKEY,                       XK_r,      winviewmono,    {} },
+	{0}
 };
 
 /* button definitions */
