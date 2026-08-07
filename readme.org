@@ -15,3 +15,4 @@ Follow commit history to know about patches added:
 - patch =keysequence-2025= added in this commit.  Additionally, added a template keysequence to =config.def.h= file.
 - patch =spawn_window_cwd-6.6= added in this commit
 - patch =cfacts-2020= added in this commit.  Keybindings described in this patch in the =config.def.h= file, clashes with those in =shift-tools-6.2=.  Additional, modifications done.
+- patch =exitmenu-6.3= added in this commit

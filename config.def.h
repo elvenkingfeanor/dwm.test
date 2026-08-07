@@ -90,6 +90,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 #include "shift-tools.c"
+#include "exitdwm.c"
 
 /* keysequence-2025 patch, template for keysequences */
 /* static Key keyseq_a[] = { */
@@ -172,7 +173,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      exitdwm,        {0} }, /* exitmenu patch, modified */
 	{ MODKEY,                       XK_o,      winview,        {0} },
 	{ MODKEY,                       XK_g,      gridall,        {} },
 	{ MODKEY,                       XK_r,      winviewmono,    {} },
