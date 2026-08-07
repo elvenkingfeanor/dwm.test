@@ -21,6 +21,7 @@
  * To understand everything else, start reading main().
  */
 #include <errno.h>
+#include <libgen.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -87,7 +88,7 @@ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
 enum { SchemeNorm, SchemeSel }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
-       NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
+       NetWMWindowTypeDialog, NetClientList, NetWMPid, NetLast }; /* EWMH atoms */
 enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
 enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
        ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
@@ -205,6 +206,7 @@ static int getrootptr(int *x, int *y);
 static long getstate(Window w);
 static pid_t getstatusbarpid(void);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
+static int getwincwd(size_t n, char buf[n]);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
 static void incnmaster(const Arg *arg);
@@ -2028,6 +2030,7 @@ setup(void)
 	netatom[NetWMWindowType] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE", False);
 	netatom[NetWMWindowTypeDialog] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_DIALOG", False);
 	netatom[NetClientList] = XInternAtom(dpy, "_NET_CLIENT_LIST", False);
+	netatom[NetWMPid] = XInternAtom(dpy, "_NET_WM_PID", False);
 	/* init cursors */
 	cursor[CurNormal] = drw_cur_create(drw, XC_left_ptr);
 	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
@@ -2097,6 +2100,72 @@ showhide(Client *c)
 	}
 }
 
+int
+getwincwd(size_t n, char buf[n])
+{
+	enum {
+		CMDBUFLEN = 128,
+		TMPBUFLEN = 128,
+	};
+
+	Client *c;
+	unsigned char *pid_data = NULL;
+	unsigned long nitems, bytes_after;
+	int format;
+	Atom type;
+	char command[CMDBUFLEN];
+	long int command_res;
+	char tmpbuf[TMPBUFLEN];
+	FILE *fp;
+
+	if (selmon->sel == NULL)
+	{
+		return -1;
+	}
+
+	c = wintoclient(selmon->sel->win);
+	if (XGetWindowProperty(dpy, c->win, netatom[NetWMPid], 0, 1, False, AnyPropertyType,
+				&type, &format, &nitems, &bytes_after, &pid_data) != Success)
+	{
+		return -1;
+	}
+
+	snprintf(command, sizeof(command), "pgrep --newest --parent %d 2>/dev/null", *(pid_t*)pid_data);
+
+	fp = popen(command, "r");
+	if (fp == NULL)
+	{
+		return -1;
+	}
+	fgets(tmpbuf, sizeof(tmpbuf), fp);
+	pclose(fp);
+
+	errno = 0;
+	command_res = strtol(tmpbuf, NULL, 10);
+	if (command_res <= 0 || errno != 0)
+	{
+		return -1;
+	}
+
+	snprintf(command, sizeof(command), "readlink /proc/%ld/cwd 2>/dev/null", command_res);
+	fp = popen(command, "r");
+	if (fp == NULL)
+	{
+		return -1;
+	}
+	fgets(tmpbuf, sizeof(tmpbuf), fp);
+	pclose(fp);
+
+	char *p = strchr(tmpbuf, '\n');
+	if (p != NULL)
+	{
+		*p = '\0';
+	}
+	strncpy(buf, tmpbuf, n);
+
+	return 0;
+}
+
 void
 sigstatusbar(const Arg *arg)
 {
@@ -2115,6 +2184,16 @@ void
 spawn(const Arg *arg)
 {
 	struct sigaction sa;
+	const char *home = getenv("HOME");
+	char cwd[PATH_MAX];
+
+	if (getwincwd(LENGTH(cwd), cwd) != 0)
+	{
+		if (home != NULL)
+		{
+			strncpy(cwd, home, LENGTH(cwd));
+		}
+	}
 
 	if (arg->v == dmenucmd)
 		dmenumon[0] = '0' + selmon->num;
@@ -2128,6 +2207,7 @@ spawn(const Arg *arg)
 		sa.sa_handler = SIG_DFL;
 		sigaction(SIGCHLD, &sa, NULL);
 
+		chdir(cwd);
 		execvp(((char **)arg->v)[0], (char **)arg->v);
 		die("dwm: execvp '%s' failed:", ((char **)arg->v)[0]);
 	}
