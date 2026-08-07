@@ -11,3 +11,4 @@ Follow commit history to know about patches added:
 - patch =moveresize-2022= added in this commit
 - patch =pertag-2020= added in this commit
 - patch =scratchpads-2020= added in this commit
+- patch =gridall-6.5= combining the =gapless-grid= and the =winview= patches, added in this commit

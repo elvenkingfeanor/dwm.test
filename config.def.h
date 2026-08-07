@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include "gaplessgrid.c"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -68,6 +69,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "HHH",      gaplessgrid },
 };
 
 /* key definitions */
@@ -152,6 +154,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_o,      winview,        {0} },
+	{ MODKEY,                       XK_g,      gridall,        {} },
+	{ MODKEY,                       XK_r,      winviewmono,    {} },
 };
 
 /* button definitions */
