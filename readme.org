@@ -17,3 +17,4 @@ Follow commit history to know about patches added:
 - patch =cfacts-2020= added in this commit.  Keybindings described in this patch in the =config.def.h= file, clashes with those in =shift-tools-6.2=.  Additional, modifications done.
 - patch =exitmenu-6.3= added in this commit
 - patch =movestack-2021= added in this commit
+- patch =fsignal-6.2= added in this commit
