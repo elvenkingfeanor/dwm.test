@@ -91,6 +91,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgco
 static const char *termcmd[]  = { "st", NULL };
 #include "shift-tools.c"
 #include "exitdwm.c"
+#include "movestack.c"
 
 /* keysequence-2025 patch, template for keysequences */
 /* static Key keyseq_a[] = { */
@@ -119,6 +120,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	/* { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} }, /\* cfact patch, clashes with shift-tools patch *\/ */
 	/* { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} }, */
 	/* { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} }, */
