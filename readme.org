@@ -9,3 +9,4 @@ Follow commit history to know about patches added:
 - patch =shift-tools-6.2= added in this commit
 - patch =statuscmd-2026= added in this commit
 - patch =moveresize-2022= added in this commit
+- patch =pertag-2020= added in this commit
