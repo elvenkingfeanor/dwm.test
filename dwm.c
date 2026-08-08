@@ -2242,9 +2242,16 @@ void setcfact(const Arg *arg) {
 }
 
 /* arg > 1.0 will set mfact absolutely */
+/* arg <= -1.0 will set mfact to DEFAULT_MFACT */
 void
 setmfact(const Arg *arg)
 {
+    if (arg->f <= -1.0) {
+        selmon->mfact = DEFAULT_MFACT;
+        arrange(selmon);
+        return;
+    }
+
 	float f;
 
 	if (!arg || !selmon->lt[selmon->sellt]->arrange)
