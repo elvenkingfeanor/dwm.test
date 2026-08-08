@@ -26,3 +26,4 @@ Follow commit history to know about patches added:
 - patch =restoreafterrestart-2022= added in this commit
 - patch =tiledmove-2023= added in this commit
 - patch =focusbynum-2023= added in this commit.  Keybindings defined in this patch in the =config.def.h= file, clashes with those in =shift-tools-6.2=, =cfacts-2020= and =movestack-2021= patches.  Additional modifications done.
+- patch =focusmaster-6.2= added in this commit
