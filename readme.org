@@ -31,3 +31,4 @@ Follow commit history to know about patches added:
 - patch =cycleview-2024= added in this commit
 - patch =zeroastag-2023= added in this commit
 - patch =hide_vacant_tags-6.4= added in this commit
+- patch =doublepressquit-6.3= added in this commit.  Requires modifying the ~quit~ function in =dwm.c= file, on top of the pre-existing modification by the =restoreafterrestart-2022= patch.
