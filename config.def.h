@@ -187,6 +187,20 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	/* { MODKEY|ShiftMask,             XK_j,      focusbynum,     {.i = 0} }, /\* focusbynum patch, clashes with shift-tools, movestack and cfact patches *\/ */
+	/* { MODKEY|ShiftMask,             XK_k,      focusbynum,     {.i = 1} }, */
+	/* { MODKEY|ShiftMask,             XK_l,      focusbynum,     {.i = 2} }, */
+	/* { MODKEY|ShiftMask,             XK_colon,  focusbynum,     {.i = 3} }, */
+	/* { MODKEY|ShiftMask,             XK_f,      focusbynum,     {.i = 4} }, */
+	/* { MODKEY|ShiftMask,             XK_d,      focusbynum,     {.i = 5} }, */
+	/* { MODKEY|ShiftMask,             XK_s,      focusbynum,     {.i = 6} }, */
+	/* { MODKEY|ShiftMask,             XK_a,      focusbynum,     {.i = 7} }, */
+	{ MODKEY|ControlMask,             XK_j,      focusbynum,     {.i = 0} },
+	{ MODKEY|ControlMask,             XK_k,      focusbynum,     {.i = 1} },
+	{ MODKEY|ControlMask,             XK_f,      focusbynum,     {.i = 2} },
+	{ MODKEY|ControlMask,             XK_d,      focusbynum,     {.i = 3} },
+	{ MODKEY|ControlMask,             XK_s,      focusbynum,     {.i = 4} },
+	{ MODKEY|ControlMask,             XK_a,      focusbynum,     {.i = 5} },
 	{ MODKEY|ShiftMask,             XK_q,      exitdwm,        {0} }, /* exitmenu patch, modified */
 	{ MODKEY,                       XK_o,      winview,        {0} },
 	{ MODKEY,                       XK_g,      gridall,        {} },
