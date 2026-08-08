@@ -39,7 +39,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -146,8 +146,6 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,		XK_h,      shiftswaptags,  { .i = -1 }	},
 	{ MODKEY|ControlMask,		XK_l,      shiftswaptags,  { .i = +1 }	},
 	{ MODKEY|ShiftMask,             XK_l,      shiftboth,      { .i = +1 }	},
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
     { MODKEY|ControlMask,           XK_c,      killclient,     {.ui = 1} },  // kill unselect
     { MODKEY|ShiftMask|ControlMask, XK_c,      killclient,     {.ui = 2} },  // killall
@@ -192,6 +190,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_0,                      9)
 	/* { MODKEY|ShiftMask,             XK_j,      focusbynum,     {.i = 0} }, /\* focusbynum patch, clashes with shift-tools, movestack and cfact patches *\/ */
 	/* { MODKEY|ShiftMask,             XK_k,      focusbynum,     {.i = 1} }, */
 	/* { MODKEY|ShiftMask,             XK_l,      focusbynum,     {.i = 2} }, */
