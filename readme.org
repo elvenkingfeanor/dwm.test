@@ -34,3 +34,4 @@ Follow commit history to know about patches added:
 - patch =doublepressquit-6.3= added in this commit.  Requires modifying the ~quit~ function in =dwm.c= file, on top of the pre-existing modification by the =restoreafterrestart-2022= patch.
 - patch =dmenumatchtop-6.2= added in this commit
 - patch =alwayscenter-2020= added in this commit
+- patch =colemak_keys-2020= added in this commit.  More modifications done to change keybindings of pre-existing patches to reflect ~colemak~ layout.  Additional changes to =dwm.1= manual file, reflecting new keybindings, as well as incorporating older keybindings from pre-existing patches.

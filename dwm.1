@@ -92,26 +92,56 @@ Sets monocle layout.
 .B Mod1\-space
 Toggles between current and previous layout.
 .TP
-.B Mod1\-j
+.B Mod1\-n
 Focus next window.
 .TP
-.B Mod1\-k
+.B Mod1\-e
 Focus previous window.
 .TP
-.B Mod1\-i
+.B Mod1\-l
 Increase number of windows in master area.
 .TP
-.B Mod1\-d
+.B Mod1\-u
 Decrease number of windows in master area.
 .TP
-.B Mod1\-l
+.B Mod1\-i
 Increase master area size.
 .TP
 .B Mod1\-h
 Decrease master area size.
 .TP
+.B Mod1\-bracket[right/left]
+View the next/prev tag that has a client window, else view the next/prev tag.
+.TP
+.B Mod1\-Shift\-bracket[right/left]
+View the next/prev tag.
+.TP
+.B Mod1\-Shift\-[h/i]
+Move active client window to next/prev tag and view that tag.
+.TP
+.B Mod1\-Control\-[h/i]
+Swaps tag on all client windows of selected tag with the next/prev tag.
+.TP
+.B Mod1\-Control\-Shift\-[h/i]
+Increase/Decrease tiled client window size.
+.TP
+.B Mod1\-Control\-Shift\-o
+Restore client window sizes to default within respective stack.
+.TP
+.B Mod1\-Shift\-[n/e]
+Swap to next/prev client window from selected client window.
+.TP
+.B Mod1\-Control\-Shift\-[n/e]
+View the prev/next tag.
+.TP
 .B Mod1\-o
 Select view of the window in focus. The list of tags to be displayed is matched to the window tag list.
+.TP
+.B Mod1\-g
+Display all window clients in all tags together in a gapless grid layout.
+.TP
+.B Mod1\-r
+Jump to selected window client from gapless grid layout.
 .TP
 .B Mod1\-Return
 Zooms/cycles focused window to/from master area (tiled layouts only).
@@ -119,8 +149,17 @@ Zooms/cycles focused window to/from master area (tiled layouts only).
 .B Mod1\-Shift\-c
 Close focused window.
 .TP
+.B Mod1\-Control\-c
+Close all windows in current tag, except focused window.
+.TP
+.B Mod1\-Control\-Shift\-c
+Close all windows in current tag.
+.TP
 .B Mod1\-Shift\-space
 Toggle focused window between tiled and floating state.
+.TP
+.B Mod1\-Control\-space
+Switch focus to tiled master client window from anywhere in the stack.  Return to the client window from the master client by repeating the same keybind.
 .TP
 .B Mod1\-Tab
 Toggles to the previously selected tags.
@@ -142,6 +181,27 @@ View all windows with any tag.
 .TP
 .B Mod1\-Control\-[1..n]
 Add/remove all windows with nth tag to/from the view.
+.TP
+.B Mod1\-[Up/Down/Left/Right]
+Move floating windows.
+.TP
+.B Mod1\-Shift\-[Up/Down/Left/Right]
+Resize floating windows.
+.TP
+.B Mod1\-Control\-[Up/Down/Left/Right]
+Move floating window to edge of screen.
+.TP
+.B Mod1\-Control\-Shift\-[Up/Down/Left/Right]
+Resize floating window to edge of screen.
+.TP
+.B Mod1\-F5
+Reload colors from .Xresources file.
+.TP
+.B Mod1\-[y/a/x]
+Launch scratchpads for st/ranger/keepassxc.
+.TP
+.B Mod1\-Control\-[n/e/t/s/r/a]
+Jump to first/second/third/fourth/fifth/sixth window of current tag.
 .TP
 .B Mod1\-Shift\-q
 Quit dwm.

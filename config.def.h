@@ -121,34 +121,34 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_o, shiftviewclients,    { .i = +1 } },
-	{ MODKEY|ShiftMask,             XK_o,	shiftview,         { .i = +1 } },
-	{ MODKEY|ShiftMask,             XK_i,	shiftview,         { .i = -1 } },
-	{ MODKEY,	                XK_i, shiftviewclients,    { .i = -1 } },
+	{ MODKEY,                   XK_bracketright, shiftviewclients,    { .i = +1 } }, /* shift-tools patch modified */
+	{ MODKEY|ShiftMask,         XK_bracketright, shiftview,           { .i = +1 } },
+	{ MODKEY|ShiftMask,         XK_bracketleft,	 shiftview,           { .i = -1 } },
+	{ MODKEY,	                XK_bracketleft,  shiftviewclients,    { .i = -1 } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ControlMask|ShiftMask, XK_j,      cycleview,      {1} }, /* cycleview patch bindings clash with movestack bindings, adjusted */
-	{ MODKEY|ControlMask|ShiftMask, XK_k,      cycleview,      {0} },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_e,      focusstack,     {.i = -1 } },
+	{ MODKEY|ControlMask|ShiftMask, xk_n,      cycleview,      {1} }, /* cycleview patch bindings modified */
+	{ MODKEY|ControlMask|ShiftMask, xk_e,      cycleview,      {0} },
+	{ MODKEY,                       XK_l,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_i,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_equal,  setmfact,       {.f = -1.0} },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             xk_n,      movestack,      {.i = +1 } }, /* movestack patch bindings modified */
+	{ MODKEY|ShiftMask,             xk_e,      movestack,      {.i = -1 } },
 	/* { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} }, /\* cfact patch, clashes with shift-tools patch *\/ */
 	/* { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} }, */
 	/* { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} }, */
-	{ MODKEY|ControlMask|ShiftMask, XK_h,     setcfact, {.f = +0.25} },
-	{ MODKEY|ControlMask|ShiftMask, XK_l,     setcfact, {.f = -0.25} },
-	{ MODKEY|ControlMask|ShiftMask, XK_o,     setcfact, {.f = 0.00} },
-	{ MODKEY|ShiftMask,		XK_h,      shiftboth,      { .i = -1 }	},
-	{ MODKEY|ControlMask,		XK_h,      shiftswaptags,  { .i = -1 }	},
-	{ MODKEY|ControlMask,		XK_l,      shiftswaptags,  { .i = +1 }	},
-	{ MODKEY|ShiftMask,             XK_l,      shiftboth,      { .i = +1 }	},
+	{ MODKEY|ControlMask|ShiftMask, XK_h,      setcfact,	   {.f = +0.25} },
+	{ MODKEY|ControlMask|ShiftMask, XK_i,      setcfact,	   {.f = -0.25} }, /* setcfact patch binding modified */
+	{ MODKEY|ControlMask|ShiftMask, XK_o,      setcfact,	   {.f = 0.00} },
+	{ MODKEY|ShiftMask,				XK_h,      shiftboth,      { .i = -1 }	}, /* shift-tools patch bindings modified */
+	{ MODKEY|ControlMask,			XK_h,      shiftswaptags,  { .i = -1 }	},
+	{ MODKEY|ControlMask,			XK_i,      shiftswaptags,  { .i = +1 }	},
+	{ MODKEY|ShiftMask,             XK_i,      shiftboth,      { .i = +1 }	},
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
     { MODKEY|ControlMask,           XK_c,      killclient,     {.ui = 1} },  // kill unselect
     { MODKEY|ShiftMask|ControlMask, XK_c,      killclient,     {.ui = 2} },  // killall
@@ -174,15 +174,13 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_Down,   moveresizeedge, {.v = "B"} },
 	{ MODKEY|ControlMask|ShiftMask, XK_Left,   moveresizeedge, {.v = "L"} },
 	{ MODKEY|ControlMask|ShiftMask, XK_Right,  moveresizeedge, {.v = "R"} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
-	{ MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
+	{ MODKEY,        				XK_a,	   togglescratch,  {.ui = 1 } }, /* scratchpads patch keybinding clashes with colemak patch keybinding, modified */
 	{ MODKEY,            			XK_x,	   togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
@@ -202,11 +200,11 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_d,      focusbynum,     {.i = 5} }, */
 	/* { MODKEY|ShiftMask,             XK_s,      focusbynum,     {.i = 6} }, */
 	/* { MODKEY|ShiftMask,             XK_a,      focusbynum,     {.i = 7} }, */
-	{ MODKEY|ControlMask,             XK_j,      focusbynum,     {.i = 0} },
-	{ MODKEY|ControlMask,             XK_k,      focusbynum,     {.i = 1} },
-	{ MODKEY|ControlMask,             XK_f,      focusbynum,     {.i = 2} },
-	{ MODKEY|ControlMask,             XK_d,      focusbynum,     {.i = 3} },
-	{ MODKEY|ControlMask,             XK_s,      focusbynum,     {.i = 4} },
+	{ MODKEY|ControlMask,             xk_n,      focusbynum,     {.i = 0} },
+	{ MODKEY|ControlMask,             xk_e,      focusbynum,     {.i = 1} },
+	{ MODKEY|ControlMask,             XK_t,      focusbynum,     {.i = 2} },
+	{ MODKEY|ControlMask,             XK_s,      focusbynum,     {.i = 3} },
+	{ MODKEY|ControlMask,             XK_r,      focusbynum,     {.i = 4} },
 	{ MODKEY|ControlMask,             XK_a,      focusbynum,     {.i = 5} },
 	{ MODKEY|ShiftMask,             XK_q,      exitdwm,        {0} }, /* exitmenu patch, modified */
 	{ MODKEY,                       XK_o,      winview,        {0} },
