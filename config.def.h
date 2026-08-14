@@ -40,6 +40,7 @@ static Sp scratchpads[] = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+static const int taglayouts[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; /* taglayouts-6.4 patch modified for zeroastag patch */
 
 /* Lockfile */
 static char lockfile[] = "/tmp/dwm.lock";
