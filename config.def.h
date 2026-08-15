@@ -131,15 +131,15 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_e,      focusstack,     {.i = -1 } },
-	{ MODKEY|ControlMask|ShiftMask, xk_n,      cycleview,      {1} }, /* cycleview patch bindings modified */
-	{ MODKEY|ControlMask|ShiftMask, xk_e,      cycleview,      {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_n,      cycleview,      {1} }, /* cycleview patch bindings modified */
+	{ MODKEY|ControlMask|ShiftMask, XK_e,      cycleview,      {0} },
 	{ MODKEY,                       XK_l,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_i,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_equal,  setmfact,       {.f = -1.0} },
-	{ MODKEY|ShiftMask,             xk_n,      movestack,      {.i = +1 } }, /* movestack patch bindings modified */
-	{ MODKEY|ShiftMask,             xk_e,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_n,      movestack,      {.i = +1 } }, /* movestack patch bindings modified */
+	{ MODKEY|ShiftMask,             XK_e,      movestack,      {.i = -1 } },
 	/* { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} }, /\* cfact patch, clashes with shift-tools patch *\/ */
 	/* { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} }, */
 	/* { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} }, */
@@ -201,8 +201,8 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_d,      focusbynum,     {.i = 5} }, */
 	/* { MODKEY|ShiftMask,             XK_s,      focusbynum,     {.i = 6} }, */
 	/* { MODKEY|ShiftMask,             XK_a,      focusbynum,     {.i = 7} }, */
-	{ MODKEY|ControlMask,             xk_n,      focusbynum,     {.i = 0} },
-	{ MODKEY|ControlMask,             xk_e,      focusbynum,     {.i = 1} },
+	{ MODKEY|ControlMask,             XK_n,      focusbynum,     {.i = 0} },
+	{ MODKEY|ControlMask,             XK_e,      focusbynum,     {.i = 1} },
 	{ MODKEY|ControlMask,             XK_t,      focusbynum,     {.i = 2} },
 	{ MODKEY|ControlMask,             XK_s,      focusbynum,     {.i = 3} },
 	{ MODKEY|ControlMask,             XK_r,      focusbynum,     {.i = 4} },
