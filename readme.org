@@ -36,3 +36,4 @@ Follow commit history to know about patches added:
 - patch =alwayscenter-2020= added in this commit
 - patch =colemak_keys-2020= added in this commit.  More modifications done to change keybindings of pre-existing patches to reflect ~colemak~ layout.  Additional changes to =dwm.1= manual file, reflecting new keybindings, as well as incorporating older keybindings from pre-existing patches.
 - patch =taglayouts-6.4= added in this commit.  Modifications needed in =config.def.h= file to match changes via =zeroastag-2023= patch in previous ~f95aa8e0~ commit.
+- patch =restartsig-2018= added as a dependency for =restoreafterrestart-2022= patch in this commit

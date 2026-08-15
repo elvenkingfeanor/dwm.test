@@ -208,6 +208,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,             XK_r,      focusbynum,     {.i = 4} },
 	{ MODKEY|ControlMask,             XK_a,      focusbynum,     {.i = 5} },
 	{ MODKEY|ShiftMask,             XK_q,      exitdwm,        {0} }, /* exitmenu patch, modified */
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 	{ MODKEY,                       XK_o,      winview,        {0} },
 	{ MODKEY,                       XK_g,      gridall,        {} },
 	{ MODKEY,                       XK_r,      winviewmono,    {} },
